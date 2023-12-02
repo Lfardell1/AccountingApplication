@@ -1,0 +1,94 @@
+.tax-management-summary {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .summary-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .current-income,
+    .breakdown {
+      flex: 1;
+      padding: 10px;
+      margin: 10px;
+      background-color: white;
+      border-radius: 6px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .income-type {
+        text-align: center;
+        color: #666;
+      }
+
+      ul.breakdown-list {
+        list-style: none;
+        padding: 0;
+
+        li {
+          display: flex;
+          justify-content: space-between;
+          padding: 8px 0;
+
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .add-deduction,
+    .deduction-list,
+    .estimated-tax {
+      flex: 1;
+
+      h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+
+        &:hover {
+          background-color: #2980b9;
+        }
+      }
+
+      p {
+        font-size: 24px;
+        text-align: center;
+        margin-top: 20px;
+      }
+    }
+
+
+  }
+}

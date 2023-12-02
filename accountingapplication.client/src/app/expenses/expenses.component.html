@@ -1,0 +1,71 @@
+
+<app-layout>
+<section class="page">
+<section class="card">
+  <h2>Recurring Monthly Expenses</h2>
+
+  <section class="header-card">
+    <div class="button-card">
+      <input type="text" id="expenseDescription" placeholder="Description" [(ngModel)]="newExpense.description">
+      <input type="number" id="expenseAmount" placeholder="Amount" [(ngModel)]="newExpense.amount">
+      <input type="number" id="expenseDate" placeholder="Date" [(ngModel)]="newExpense.date">
+      <button (click)="addExpense()">Add Expense</button>
+    </div>
+  </section>
+
+  <div class="table">
+    <table>
+      <thead>
+        <tr class="table-head">
+          <th class="column1">Date Payable</th>
+          <th class="column3">Description</th>
+          <th class="column4">Price</th>
+          <th class="column5">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+
+         <tr *ngFor="let expense of expenses">
+           <td class="column1">{{ expense.date }}</td>
+           <td>{{ expense.description }}</td>
+           <td class="column4">{{ expense.amount }}</td>
+         <td class="column5">
+          <button (click)="deleteExpense(expense)">Delete</button> -
+         </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+
+
+
+  <section class="container cards">
+    <!-- Monthly Summary -->
+    <section class="card">
+      <h3>Monthly Summary</h3>
+      <!-- Placeholder for summary -->
+    </section>
+
+    <!-- Expense Calendar -->
+    <section class="card">
+      <h3>Expense Calendar</h3>
+      <!-- Placeholder for calendar -->
+    </section>
+
+    <!-- Reminders and Alerts -->
+    <section class="card">
+      <h3>Reminders and Alerts</h3>
+    </section>
+
+    <!-- Expense Insights -->
+    <section class="card">
+      <h3>Expense Insights</h3>
+      <!-- Placeholder for insights -->
+    </section>
+  </section>
+
+</section>
+</app-layout>

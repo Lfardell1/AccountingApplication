@@ -1,0 +1,12 @@
+.container {
+  display: flex; /* Use flexbox */
+  height: 100vh; /* Full height */
+}
+
+.content {
+  flex: 1; /* Allow content to take up available space */
+  padding: 20px;
+  /* Other styles */
+}
+
+

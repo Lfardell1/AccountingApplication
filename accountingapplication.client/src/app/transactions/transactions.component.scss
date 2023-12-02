@@ -1,0 +1,37 @@
+/* all-transactions.component.scss */
+
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+
+    h2 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .button-card {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+
+      input[type='text'],
+      input[type='number'] {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 0.9rem;
+      }
+
+
+    }
+
+  }
+}

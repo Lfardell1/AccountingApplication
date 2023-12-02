@@ -1,0 +1,6 @@
+@AccountingApplication.Server_HostAddress = http://localhost:5110
+
+GET {{AccountingApplication.Server_HostAddress}}/
+Accept: application/json
+
+###

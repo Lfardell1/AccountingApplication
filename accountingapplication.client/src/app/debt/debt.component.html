@@ -1,0 +1,47 @@
+<app-layout>
+<section class="page">
+  <div class="card">
+    <h2>Debt and Payment Tracker</h2>
+    <section class="header-card">
+      <div class="button-card">
+        <div class="input-field">
+          <label for="debtAmount">Debt Amount</label>
+          <input type="number" id="debtAmount" placeholder="Debt Amount" [(ngModel)]="newDebt.debtAmount">
+        </div>
+        <div class="input-field">
+          <label for="paymentAmount">Payment Amount</label>
+          <input type="number" id="paymentAmount" placeholder="Payment Amount" [(ngModel)]="newDebt.paymentAmount">
+        </div>
+        <div class="input-field">
+          <label for="weeksToPay">Weeks to Pay</label>
+          <input type="number" id="weeksToPay" placeholder="Weeks to Pay" [(ngModel)]="newDebt.weeksToPay">
+        </div>
+        <button (click)="calculateWeeksToPay()">Calculate</button>
+      </div>
+    </section>
+
+    <div class="table">
+      <table>
+        <thead>
+          <tr class="table-head">
+            <th class="column1">Week</th>
+            <th class="column2">Remaining Debt</th>
+            <th class="column3">Reduction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let week of weeksToPayArray; let i = index">
+            <td class="column1">{{ i + 1 }}</td>
+            <td class="column2">{{ week.remainingDebt | currency }}</td>
+            <td class="column3">{{ week.reduction | currency }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <section class="container cards">
+    <!-- Additional sections for other features as needed -->
+  </section>
+</section>
+</app-layout>

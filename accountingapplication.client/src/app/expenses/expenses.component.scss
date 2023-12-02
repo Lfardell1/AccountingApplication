@@ -1,0 +1,83 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .header-card {
+    margin-bottom: 20px;
+
+    .button-card {
+      display: flex;
+      align-items: center;
+
+      input[type="text"],
+      input[type="number"],
+      input[type="date"],
+      button {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        transition: border-color 0.3s ease-in-out;
+
+        &:focus {
+          outline: none;
+          border-color: #3498db;
+        }
+      }
+
+      input[type="text"],
+      input[type="number"],
+      input[type="date"] {
+        margin-right: 10px;
+      }
+
+      button {
+        background-color: #3498db;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #2a7eb3;
+        }
+      }
+    }
+  }
+
+
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .card {
+    flex: 1 1 48%; /* Adjust card width as needed */
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+
+    h3 {
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -1,0 +1,247 @@
+<app-layout>
+<div class="dashboard">
+
+  <section class="container">
+
+      <div class="parent">
+          <div class="div1" id="card">
+
+            <section class="Header">
+              <div *ngIf="user">Welcome, {{this.user.Username}}</div>
+              <div id="SummaryTable" class="vertical-table">
+                <h2>Monthly Summary</h2>
+                <table>
+                    <tr>
+                        <th>Current Cash</th>
+                        <th>Current Debts</th>
+                        <th>Expenses for the Month</th>
+                        <th>Income for the Month</th>
+                    </tr>
+                    <tr>
+                        <td>$1,000</td>
+                        <td>$1,000</td>
+                        <td>$1,000</td>
+                        <td>$1,000</td>
+                    </tr>
+                </table>
+                        </div>
+            </section>
+
+          </div>
+          <div class="div2" id="card">
+            <section class="header-container">
+              <span>Recent Transactions</span>
+              <div class="button-container">
+                  <button id="DeleteTransactionButton1">Delete Transaction</button>
+                  <button id="AddTransactionButton1">Add Transaction</button>
+              </div>
+            </section>
+
+            <div class="table">
+              <table>
+                <thead>
+                  <tr class="table-head">
+                      <th>Date</th>
+                      <th>Description</th>
+                      <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>2022-01-01</td>
+                      <td>Groceries</td>
+                      <td>$50</td>
+                    </tr>
+                    <tr>
+                      <td>2022-01-02</td>
+                      <td>Gasoline</td>
+                      <td>$30</td>
+                    </tr>
+                    <tr>
+                      <td>2022-01-03</td>
+                      <td>Restaurant</td>
+                      <td>$25</td>
+                    </tr>
+                    <tr>
+                      <td>2022-01-02</td>
+                      <td>Gasoline</td>
+                      <td>$30</td>
+                    </tr>
+                    <tr>
+                      <td>2022-01-03</td>
+                      <td>Restaurant</td>
+                      <td>$25</td>
+                    </tr>
+
+
+                </tbody>
+              </table>
+            </div>
+            <div class="see-more">
+              <a href="#">View More</a>
+            </div>
+          </div>
+          <div class="div3" id="card">
+            <section class="header-container">
+            <span>Monthly Expenses</span>
+            <div class="button-container">
+                <button id="DeleteTransactionButton">Delete Expense</button>
+                <button id="AddTransactionButton">Add Expense</button>
+            </div>
+            </section>
+            <div class="table">
+              <table>
+                <thead>
+                  <tr class="table-head">
+                    <th class="column1">Date</th>
+                    <th class="column3">Description</th>
+                    <th class="column4">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="column1">2017-09-29 01:22</td>
+                    <td>Electricity Bill</td>
+                    <td class="column4">$399.00</td>
+                  </tr>
+                  <tr>
+                    <td class="column1">2017-09-29 01:22</td>
+                    <td>Internet Bill</td>
+                    <td class="column4">$599.00</td>
+                  </tr>
+                  <tr>
+                    <td class="column1">2017-09-29 01:22</td>
+                    <td class="column3">Mortgage repayment</td>
+                    <td class="column4">$799.00</td>
+                  </tr>
+                  <tr>
+                    <td class="column1">2017-09-29 01:22</td>
+                    <td class="column3">iPhone X 64Gb Grey</td>
+                    <td class="column4">$299.00</td>
+                  </tr>
+                  <tr>
+                    <td class="column1">2017-09-29 01:22</td>
+                    <td class="column3">iPhone X 64Gb Grey</td>
+                    <td class="column4">$499.00</td>
+                  </tr>
+
+                </tbody>
+              </table>
+              <div class="see-more">
+                <a href="#">View More</a>
+              </div>
+         </div>
+
+
+
+          </div>
+          <div class="div4" id="card">
+
+
+
+            <section class="incomes">
+              <h2>Income Sources</h2>
+              <ul id="incomeList">
+                <!-- Income sources will be dynamically added here -->
+              </ul>
+
+            </section>
+
+          </div>
+          <div class="div5" id="card">
+
+            <div class="tax-management-summary">
+              <h2>Tax Management Summary</h2>
+              <div class="summary-details">
+                <div class="current-income">
+                  <h1>$50,000</h1>
+                  <p class="income-type">Current Taxable Income</p>
+                </div>
+                <div class="breakdown">
+                  <p><strong>Breakdown:</strong></p>
+                  <ul class="breakdown-list">
+                    <li>
+                      <span>Income:</span>
+                      <span>$70,000</span>
+                    </li>
+                    <li>
+                      <span>Deductions:</span>
+                      <span>-$20,000</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <hr>
+
+
+
+
+          </div>
+
+
+
+          <div class="div6" id="card">
+
+
+            <div class="financial-reports">
+              <h2>Financial Reports</h2>
+              <div class="chart-container">
+                <app-chart></app-chart>
+              </div>
+            </div>
+
+          </div>
+
+
+            <div class="div7" id="card">
+
+
+              <h2>Debt Information</h2>
+              <p>Total Debt: $XXXX</p>
+              <div class="table">
+                <table>
+                  <thead class="table-head">
+                    <tr>
+                      <th>Date</th>
+                      <th>Payment Amount</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2023-01-15</td>
+                      <td>$500</td>
+                      <td>Paid</td>
+                    </tr>
+                    <tr>
+                      <td>2023-02-15</td>
+                      <td>$300</td>
+                      <td>Pending</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+
+  </section>
+
+
+
+</div>
+
+</app-layout>

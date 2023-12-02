@@ -1,0 +1,57 @@
+<!-- tax.component.html -->
+<app-layout>
+<div class="tax-management-summary">
+  <h2>Tax Management Summary</h2>
+  <div class="summary-details">
+    <div class="current-income">
+      <h1>{{ taxableIncome | currency }}</h1>
+      <p class="income-type">Current Taxable Income</p>
+    </div>
+    <div class="breakdown">
+      <p><strong>Breakdown:</strong></p>
+      <ul class="breakdown-list">
+        <li>
+          <span>Income:</span>
+          <span>{{ totalIncome | currency }}</span>
+        </li>
+        <li>
+          <span>Deductions:</span>
+          <span>-{{ totalDeductions() | currency }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="add-deduction">
+    <h3>Add Deduction</h3>
+    <input type="text" [(ngModel)]="newDeduction.name" placeholder="Enter deduction name">
+    <input type="number" [(ngModel)]="newDeduction.amount" placeholder="Enter deduction amount">
+    <button (click)="addDeduction()">Add Deduction</button>
+  </div>
+
+  <div class="table">
+    <h3>Deductions List</h3>
+    <table>
+      <thead>
+        <tr class="table-head">
+          <th class="column1">Amount</th>
+          <th class="column3">Description</th>
+          <th class="column4">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let deduction of deductions; let i = index">
+          <td>{{ deduction.name }}</td>
+          <td>{{ deduction.amount | currency }}</td>
+          <td><button (click)="deleteDeduction(i)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="estimated-tax">
+    <h3>Estimated Tax</h3>
+    <p>{{ estimatedTax | currency }}</p>
+  </div>
+</div>
+</app-layout>
