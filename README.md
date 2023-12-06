@@ -25,6 +25,7 @@ Follow these steps to get the project running locally:
    ```bash
    git clone https://github.com/Lfardell1/AccountingApplication.git
 ## Or
+    ```bash
    gh repo clone Lfardell1/AccountingApplication
 
 # Project Setup Guide
