@@ -8,14 +8,13 @@ This project is a Monthly Accounting Application that assists in managing financ
 - **Expenses:** Manage and categorize expenses for better organization and tracking.
 - **Transactions:** Record and monitor financial transactions for a comprehensive overview.
 - **Debt Management:** Keep tabs on debts, payment amounts, and weeks to pay off.
-- **Charts for Stats:** Visual representation of financial data through charts.
 - **Authentication:** Login and register features for user authentication.
 
 ## Technologies Used
 
 - **Backend:** .NET Framework with Entity Framework for database interaction.
 - **Frontend:** Angular for the user interface.
-- **Database:** SQL database (please mention the specific database, if applicable).
+- **Database:** SQL database
 
 ## Getting Started
 
