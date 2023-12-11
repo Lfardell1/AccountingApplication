@@ -60,13 +60,4 @@ Follow these steps to get the project running locally:
     ```
 
 
-## Login
-
-LOGIN WITH THIS USERNAME - Still being worked on  
-## You can signup but it's still currently being worked on 
-> * **Default Account**
->   * Username: Leon123
->   * Password: Leon123
-
-
 ## README and Project is still a work in progress :)
