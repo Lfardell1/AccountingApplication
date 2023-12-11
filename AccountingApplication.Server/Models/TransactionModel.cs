@@ -1,10 +1,13 @@
-﻿namespace AccountingApplication.Server.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AccountingApplication.Server.Models
 {
     public class Transactions
     {
+        [Key]
         public int Id { get; set; }
 
-        public int TransactionID { get; set; }
+        public int Amount { get; set; } 
 
         public int UserID { get; set; }
 

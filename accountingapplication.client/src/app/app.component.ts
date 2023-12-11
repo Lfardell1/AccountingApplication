@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.isAuthenticated = this.authService.isAuthenticatedUser;
+    this.isAuthenticated = this.authService.getIsAuthenticated();
 
     const currentRoute = this.router.url;
 

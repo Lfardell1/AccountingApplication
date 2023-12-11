@@ -23,9 +23,9 @@ namespace AccountingApplication.Server.Repos.Implementation
             return await _context.Incomes.ToListAsync();
         }
 
-        public async Task<Incomes> GetIncomeByIdAsync(int id)
+        public async Task<IEnumerable<Incomes>> GetIncomesByIdAsync(int id)
         {
-            return await _context.Incomes.FindAsync(id);
+            return await _context.Incomes.Where(i => i.UserId == id).ToListAsync();
         }
 
         public async Task<Incomes> CreateIncomeAsync(Incomes income)

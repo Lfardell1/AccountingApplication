@@ -9,7 +9,7 @@ namespace AccountingApplication.Server.Interfaces
     public interface IIncomeRepository
     {
         Task<IEnumerable<Incomes>> GetAllIncomesAsync();
-        Task<Incomes> GetIncomeByIdAsync(int id);
+        Task<IEnumerable<Incomes>> GetIncomesByIdAsync(int id);
         Task<Incomes> CreateIncomeAsync(Incomes income);
         Task<bool> DeleteIncomeAsync(int id);
 

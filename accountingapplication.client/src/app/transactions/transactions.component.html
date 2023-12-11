@@ -1,44 +1,52 @@
 <app-layout>
-<section class="page">
-  <section class="card">
-    <h2>All Transactions</h2>
+  <section class="page">
+    <section class="">
+      <h2>All Monthly Transactions</h2>
 
-    <section class="header-card">
-      <!-- Add transaction form -->
-      <div class="button-card">
-        <input type="text" id="transactionDescription" placeholder="Description" [(ngModel)]="newTransaction.description">
-        <input type="number" id="transactionAmount" placeholder="Amount" [(ngModel)]="newTransaction.amount">
-        <input type="text" id="transactionCategory" placeholder="Category" [(ngModel)]="newTransaction.category">
-        <button (click)="addTransaction()">Add Transaction</button>
+      <section class="card">
+        <!-- Add transaction form -->
+        <form class="button-card" #SaveForm="ngForm" (ngSubmit)="onSubmit(SaveForm)">
+          <input type="text" name="description" id="description" placeholder="Description" [(ngModel)]="newTransaction.description" name="description" ngModel required />
+          <input type="number" name="amount" id="amount" placeholder="Amount" [(ngModel)]="newTransaction.amount" name="amount" ngModel required />
+          <select name="category" id="category" [(ngModel)]="newTransaction.category" name="category" ngModel required>
+            <option value="" disabled>Select category</option>
+            <option value="Income">Income</option>
+            <option value="Expense">Expense</option>
+          </select>
+          <button type="submit" >Submit</button>
+        </form>
+        <section class="error">
+          <ul >
+            <li class="errorlist" *ngFor="let error of errorMessages">{{ error }}</li>
+          </ul>
+        </section>
+      </section>
+
+
+      <div class="card">
+        <!-- Transaction table -->
+        <table>
+          <thead>
+            <tr class="table-head">
+              <th class="column3">Description</th>
+              <th class="column4">Amount</th>
+              <th class="column5">Category</th>
+              <th class="column6">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Loop through transactions -->
+            <tr *ngFor="let transaction of Transactions">
+              <td>{{ transaction.description }}</td>
+              <td class="column4">${{ transaction.amount }}</td>
+              <td>{{ transaction.category }}</td>
+              <td class="column6">
+                <button (click)="DeleteTransaction(transaction.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
-
-    <div class="table">
-      <!-- Transaction table -->
-      <table>
-        <thead>
-          <tr class="table-head">
-            <th class="column1">Date</th>
-            <th class="column3">Description</th>
-            <th class="column4">Amount</th>
-            <th class="column5">Category</th>
-            <th class="column6">Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Loop through transactions -->
-          <tr *ngFor="let transaction of transactions">
-            <td class="column1">{{ transaction.date }}</td>
-            <td>{{ transaction.description }}</td>
-            <td class="column4">{{ transaction.amount }}</td>
-            <td>{{ transaction.category }}</td>
-            <td class="column6">
-              <button (click)="deleteTransaction(transaction)">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </section>
-</section>
 </app-layout>

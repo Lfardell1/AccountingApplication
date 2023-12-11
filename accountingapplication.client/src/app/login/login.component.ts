@@ -7,66 +7,64 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ FormsModule , CommonModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
   loginError: string | null = null;
   signupError: string | null = null;
-  user: { username: string, password: string } = { username: '', password: '' };
+  user: { username: string; password: string } = { username: '', password: '' };
   isAuthenticated: boolean = false;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.checkAuthentication();
-  }
 
+  }
+  // Handle the login - make call to authservice to login
   onLogin(username: string, password: string): void {
-    this.authService.login(username, password)
-      .subscribe((isLoggedIn: boolean) => {
-        if (isLoggedIn) {
+    // handle checks for empty username and password
+    if (username === '' || password === '') {
+      this.loginError = 'Username and password are required.';
+      return;
+    }else{
+    this.authService
+      .login(username, password)
+      .subscribe((
+        (success) => {
           this.isAuthenticated = true;
-          // Navigate to a different page or perform actions for successful login
-        } else {
-          this.loginError = 'Invalid username or password.';
-          // Handle unsuccessful login
         }
+      ),
+      (error) => {
+        // Handle errors here based on specific error messages
+        this.loginError = error;
       });
-  }
 
-  onRegister(username: string, password: string): void {
-    this.authService.signup({ username, password })
-      .subscribe((isRegistered: boolean) => {
-        if (isRegistered) {
-          // Perform actions for successful registration
-        } else {
-          this.signupError = 'Registration failed. Please try again.';
-          // Handle unsuccessful registration
-        }
-      });
-  }
-
-  async checkAuthentication(): Promise<void> {
-    try {
-      const isAuthenticated: boolean = await this.authService.isAuthenticatedUser();
-      this.isAuthenticated = isAuthenticated;
-      console.log('Authenticated:', this.isAuthenticated);
-    } catch (error) {
-      console.error('Error checking authentication:', error);
     }
+
   }
 
-  async logout(): Promise<void> {
-    try {
-      const result = await this.authService.logout();
-      console.log('Logout successful:', result);
-      this.isAuthenticated = false; // Update authentication status after logout
-    } catch (error) {
-      console.error('Logout failed:', error);
+
+  // Handle the register - make call to authservice to register
+  onRegister(username: string, password: string): void {
+    // handle checks for empty username and password
+    if (username === '' || password === '') {
+      this.signupError = 'Username and password are required.';
+      return;
+    }else{
+    this.authService
+    .signup(username, password).subscribe(
+      (success) => {
+        // Happy Registration, allow error checks to occur but authservice takes care of the rest
+      },
+      (error) => {
+        // Handle errors here based on specific error messages
+        this.signupError = error;
+      }
+    );
     }
   }
 }

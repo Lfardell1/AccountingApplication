@@ -41,16 +41,34 @@ namespace AccountingApplication.Server.Repos.Implementation
         public async Task<Users> LoginAsync(string username, string password)
         {
             // Find the user by username and password
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username && u.Password == password);
 
+           
+             var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+              
+            
+
+           
             if (user == null)
             {
                 // User not found or password doesn't match
                 return null;
+                
+            }
+            else {
+                bool VerifiedPass = PasswordHasher.VerifyPassword(password, user.Password);
+                if (VerifiedPass == false)
+                {
+                    return null;
+                }
+
+
+                return user;
+
             }
 
 
-            return user;
+
+
         }
 
 
@@ -80,24 +98,18 @@ namespace AccountingApplication.Server.Repos.Implementation
         }
         public async Task<Users> CreateUserAsync(Users user)
         {
-            try
+            if (await _context.Users.AnyAsync(u => u.Username == user.Username))
             {
-                // Add the new user to the context
-                _context.Users.Add(user);
-
-                // Save changes asynchronously
-                await _context.SaveChangesAsync();
-
-                // Return the newly created user
-                return user;
+                throw new Exception("Username already exists");
             }
-            catch (Exception ex)
-            {
-                // Handle exceptions: Log or throw an error
-                // Example: Log the exception
-                Console.WriteLine($"Error creating user: {ex.Message}");
-                throw; // Rethrow the exception or handle it based on your application's needs
-            }
+
+  
+            string hashedPassword = PasswordHasher.HashPassword(user.Password);
+            user.Password = hashedPassword;
+
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+            return user;
         }
 
     }

@@ -1,10 +1,12 @@
 <!-- layout.component.html -->
 <div class="container">
   <ul class="sidebar-nav">
+    <li class="user">
+      <h3 *ngIf="user">Welcome, {{ this.user.username }}</h3>
+      <button (click)="Logout()">Logout</button>
+    </li>
     <li class="sidebar-brand">
-      <a href="#" class="logo">
-        Account Management
-      </a>
+      <a href="#" class="logo"> Account Management </a>
     </li>
     <li>
       <a routerLink="/" routerLinkActive="active">Dashboard</a>
@@ -23,6 +25,7 @@
     </li>
   </ul>
   <div class="content">
-    <ng-content></ng-content> <!-- This will be replaced by the content of the child components -->
+    <ng-content></ng-content>
+    <!-- This will be replaced by the content of the child components -->
   </div>
 </div>

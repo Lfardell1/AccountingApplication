@@ -4,9 +4,8 @@
   align-items: center;
 }
 
-.card {
-  width: 100%;
-  max-width: 800px;
+.cardone {
+  width: 100vh;
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 8px;
@@ -19,49 +18,26 @@
 
   .header-card {
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap:20px;
+    flex-direction: row;
+  }
+
 
     .button-card {
       display: flex;
+      flex-direction: column;
+
       align-items: center;
 
-      input[type="text"],
-      input[type="number"],
-      input[type="date"],
-      button {
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        font-size: 14px;
-        transition: border-color 0.3s ease-in-out;
 
-        &:focus {
-          outline: none;
-          border-color: #3498db;
-        }
-      }
 
-      input[type="text"],
-      input[type="number"],
-      input[type="date"] {
-        margin-right: 10px;
-      }
-
-      button {
-        background-color: #3498db;
-        color: #fff;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-          background-color: #2a7eb3;
-        }
-      }
     }
   }
 
 
-}
+
 
 .container {
   display: flex;

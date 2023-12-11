@@ -1,11 +1,17 @@
 <div class="container">
   <div class="row">
+    <div class="header">
+      <h1>Monthly Accounting Dashboard</h1>
+      <h3>Login / Register</h3>
+    </div>
+  <div class="row">
     <!-- Login form -->
     <div>
       <div class="login-signup-container">
-        <div class="form-container">
+        <div class="form-container"
+        >
           <h2>Login</h2>
-          <form (ngSubmit)="onLogin(username, password)" class="login-form" #loginForm="ngForm" novalidate>
+          <form  (ngSubmit)="onLogin(username, password)" class="login-form" #loginForm="ngForm" validate>
             <div class="form-group">
               <label for="username">Username:</label>
               <input type="text" name="username" [(ngModel)]="username" required>
@@ -14,7 +20,7 @@
               <label for="password">Password:</label>
               <input type="password" name="password" [(ngModel)]="password" required>
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">Login</button><br>
             <div *ngIf="loginError" class="error">{{ loginError }}</div>
           </form>
         </div>
@@ -26,7 +32,7 @@
       <div class="login-signup-container">
         <div class="form-container">
           <h2>Register</h2>
-          <form (ngSubmit)="onRegister(user.username, user.password)" class="register-form" #registerForm="ngForm" novalidate>
+          <form (ngSubmit)="onRegister(user.username, user.password)" class="register-form" #registerForm="ngForm"validate>
             <div class="form-group">
               <label for="regUsername">Username:</label>
               <input type="text" name="regUsername" [(ngModel)]="user.username" required>
@@ -35,7 +41,7 @@
               <label for="regPassword">Password:</label>
               <input type="password" name="regPassword" [(ngModel)]="user.password" required>
             </div>
-            <button type="submit">Register</button>
+            <button type="submit">Register</button> <br>
             <div *ngIf="signupError" class="error">{{ signupError }}</div>
           </form>
         </div>

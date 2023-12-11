@@ -8,5 +8,13 @@
   padding: 20px;
   /* Other styles */
 }
-
-
+button {
+  display: block;
+  margin: 0 auto;
+}
+.user {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  margin-top: 10px;
+}

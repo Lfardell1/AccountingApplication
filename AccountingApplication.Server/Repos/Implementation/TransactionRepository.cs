@@ -5,6 +5,7 @@ using Accounting.Database;
 using Accounting.Models;
 using AccountingApplication.Server.Interfaces;
 using AccountingApplication.Server.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace AccountingApplication.Server.Repos.Implementation
@@ -19,16 +20,15 @@ namespace AccountingApplication.Server.Repos.Implementation
         }
 
 
-        public async Task<IEnumerable<Transactions>> AllTransactionsAsync()
+        public async Task<IEnumerable<Transactions>> AllUserTransactionsAsync(int UserID)
         {
-
-            return await _context.Transactions.ToListAsync();
+            return await _context.Transactions.Where(i => i.UserID == UserID).ToListAsync();
 
         }
 
-        public async Task<Transactions> GetTransactionByIdAsync(int id)
+        public async Task<Transactions> GetTransactionAsync(int id)
         {
-            return await _context.Transactions.FirstOrDefaultAsync(t => t.TransactionID == id);
+            return await _context.Transactions.FirstOrDefaultAsync(t => t.Id == id);
         }
 
   
@@ -36,7 +36,10 @@ namespace AccountingApplication.Server.Repos.Implementation
         public async Task<Transactions> CreateTransactionAsync(Transactions transaction)
         {
             _context.Transactions.Add(transaction);
+            
+            
             await _context.SaveChangesAsync();
+
             return transaction;
         }
 

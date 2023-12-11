@@ -1,94 +1,145 @@
+/* Base styling */
 .tax-management-summary {
-  max-width: 800px;
-  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  max-width: 100vh;
+  margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   h2 {
-    text-align: center;
-    margin-bottom: 20px;
+    font-size: 24px;
+    margin-bottom: 15px;
   }
 
+  /* Flex layout for sections */
   .summary-details {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    gap: 20px;
 
-    .current-income,
-    .breakdown {
+    .current-income {
       flex: 1;
-      padding: 10px;
-      margin: 10px;
-      background-color: white;
-      border-radius: 6px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
       h1 {
-        font-size: 24px;
+        font-size: 32px;
         margin-bottom: 10px;
-        text-align: center;
       }
 
       .income-type {
-        text-align: center;
-        color: #666;
+        font-size: 18px;
+      }
+    }
+
+    .breakdown {
+      flex: 1;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+      p {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
       }
 
-      ul.breakdown-list {
+      .breakdown-list {
         list-style: none;
         padding: 0;
 
         li {
           display: flex;
           justify-content: space-between;
-          padding: 8px 0;
-
-          span {
-            font-weight: bold;
-          }
+          margin-bottom: 5px;
         }
       }
     }
+  }
 
-    .add-deduction,
-    .deduction-list,
-    .estimated-tax {
-      flex: 1;
-
-      h3 {
-        font-size: 20px;
-        margin-bottom: 10px;
-        text-align: center;
-      }
+  .DeductionForm {
+    margin: 40px;
+    padding: 20px;
 
 
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-      button {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        background-color: #3498db;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out;
-
-        &:hover {
-          background-color: #2980b9;
-        }
-      }
-
-      p {
-        font-size: 24px;
-        text-align: center;
-        margin-top: 20px;
-      }
+    h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
     }
 
+
+    input{
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+
+    .add-button {
+      padding: 8px 16px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+
+  .table {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
 
   }
+
+  .estimated-tax {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
 }
+.add-deduction-form {
+  width:auto; /* Set width as needed */
+  margin: 10px auto; /* Center horizontally */
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  h3 {
+    margin-top: 0;
+  }
+
+}
+

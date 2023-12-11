@@ -1,26 +1,46 @@
 <app-layout>
-<section class="page">
-  <div class="card">
-    <h2>Debt and Payment Tracker</h2>
+  <section class="page">
     <section class="header-card">
+      <h2>Debt and Payment Tracker</h2>
       <div class="button-card">
         <div class="input-field">
-          <label for="debtAmount">Debt Amount</label>
-          <input type="number" id="debtAmount" placeholder="Debt Amount" [(ngModel)]="newDebt.debtAmount">
+          <label for="debtAmount">Please Enter Your Total Debt Amount: </label>
+          <input
+            type="number"
+            id="debtAmount"
+            [placeholder]="Debt.amount"
+            [(ngModel)]="Debt.amount"
+          />
         </div>
+        <h3>Please Enter Either Payment Amount or Weeks To Pay</h3>
         <div class="input-field">
           <label for="paymentAmount">Payment Amount</label>
-          <input type="number" id="paymentAmount" placeholder="Payment Amount" [(ngModel)]="newDebt.paymentAmount">
+          <input
+            type="number"
+            id="paymentAmount"
+            [placeholder]="Debt.paymentAmount"
+            [(ngModel)]="Debt.paymentAmount"
+            (input)="onAmountChange($event)"
+          />
+          <div class="input-field">
+            <label for="weeksToPay">Weeks to Pay</label>
+            <input
+              type="number"
+              id="weeksToPay"
+              [placeholder]="Debt.weeksToPay"
+              [(ngModel)]="Debt.weeksToPay"
+              (input)="onWeeksToPayChange($event)"
+            />
+          </div>
         </div>
-        <div class="input-field">
-          <label for="weeksToPay">Weeks to Pay</label>
-          <input type="number" id="weeksToPay" placeholder="Weeks to Pay" [(ngModel)]="newDebt.weeksToPay">
-        </div>
+        <section class="button-group">
         <button (click)="calculateWeeksToPay()">Calculate</button>
+        <button (click)="SaveToProfile()">Save To Profile</button>
+        </section>
       </div>
     </section>
 
-    <div class="table">
+    <div class="table-container">
       <table>
         <thead>
           <tr class="table-head">
@@ -38,10 +58,5 @@
         </tbody>
       </table>
     </div>
-  </div>
-
-  <section class="container cards">
-    <!-- Additional sections for other features as needed -->
   </section>
-</section>
 </app-layout>

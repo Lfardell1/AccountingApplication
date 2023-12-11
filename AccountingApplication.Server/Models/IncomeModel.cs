@@ -1,10 +1,17 @@
-﻿namespace AccountingApplication.Server.Models
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace AccountingApplication.Server.Models
 {
-    public interface Incomes
+    public class Incomes
     {
-        int Amount { get; set; }
-        string Description { get; set; }
-        int id { get; set; }
-        int UserID { get; set; }
+        [Key]
+        public int IncomeId { get; set; }
+        public int UserId { get; set; }
+
+        public string Source { get; set; }
+        public decimal Amount { get; set; }
+    
     }
+    
 }

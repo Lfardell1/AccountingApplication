@@ -10,6 +10,7 @@ using AccountingApplication.Server.Repos.Implementation;
 using Azure.Identity;
 using AccountingApplication.Server.Token;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Common;
 
 
 namespace AccountingApplication.Server.Controllers
@@ -36,6 +37,7 @@ namespace AccountingApplication.Server.Controllers
             // Add more users here if needed
         };
 
+
         [HttpGet]
         public IActionResult GetAllUsers()
         {
@@ -56,8 +58,18 @@ namespace AccountingApplication.Server.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> AddUser(Users newUser)
         {
-            await _userRepository.CreateUserAsync(newUser);
-            return CreatedAtAction(nameof(GetUserById), new { id = newUser.Id }, newUser);
+            try
+            {
+                
+
+                await _userRepository.CreateUserAsync(newUser);
+                var token = _tokenService.GenerateToken(newUser);
+                return Ok(new { Token = token, UserDetails = newUser });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(400, ex.Message);
+            }
         }
 
         [HttpPost("login")]
@@ -69,6 +81,7 @@ namespace AccountingApplication.Server.Controllers
             {
                 return Unauthorized(); // Invalid credentials
             }
+
 
             // Authentication successful, generate token
             var token = _tokenService.GenerateToken(foundUser);

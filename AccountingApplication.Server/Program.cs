@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using AccountingApplication.Server.Token;
+using AccountingApplication.Server.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +26,8 @@ builder.Services.AddScoped<TokenService>(provider => new TokenService("yourSecre
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 builder.Services.AddScoped<IIncomeRepository, IncomeRepository>();
-builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
+builder.Services.AddScoped<IDebtRepository , DebtRepository>();
+builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();   
 
 var app = builder.Build();
 
