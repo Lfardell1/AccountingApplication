@@ -1,4 +1,0 @@
-//TODO: Comment the hell out of the code
-//TODO: Get rid of all the console logging
-//TODO: Check for errors and testing
-//TODO: Tax
