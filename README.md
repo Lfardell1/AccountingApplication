@@ -1,4 +1,4 @@
-# Monthly Accounting Application (WIP)
+# Monthly Accounting Application
 
 This project was developed as a demonstration of skills and knowledge as requested by an potential employer.
 
